@@ -2,7 +2,7 @@ import axios from "axios";
 import { getCachedData } from "../helpers/storage";
 
 
-export const BASE_URL = "https://backend-yyya.onrender.com/api/";
+export const BASE_URL = "https://coopride-api-4636f2777093.herokuapp.com/api/";
 
 const apiClient = axios.create({
   baseURL: BASE_URL,

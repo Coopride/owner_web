@@ -10,10 +10,10 @@ const apiClient = axios.create({
 
 apiClient.interceptors.request.use(
   async (config: any) => {
-    const token = await getCachedData("token");
-    if (token) {
-      config.headers["Authorization"] = "Bearer " + token;
-    }
+    // const token = await getCachedData("token");
+    // if (token) {
+    //   config.headers["Authorization"] = "Bearer " + token;
+    // }
     return config;
   },
   (error: any) => {

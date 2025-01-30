@@ -4,16 +4,16 @@ import { getCachedData } from "../helpers/storage";
 
 export const BASE_URL = "https://backend-goof.onrender.com/api/";
 
-const apiClient = axios.create({
+const apiClients = axios.create({
   baseURL: BASE_URL,
 });
 
-apiClient.interceptors.request.use(
+apiClients.interceptors.request.use(
   async (config: any) => {
-    const token = await getCachedData("token");
-    if (token) {
-      config.headers["Authorization"] = "Bearer " + token;
-    }
+    // const token = await getCachedData("token");
+    // if (token) {
+    //   config.headers["Authorization"] = "Bearer " + token;
+    // }
     return config;
   },
   (error: any) => {
@@ -21,7 +21,7 @@ apiClient.interceptors.request.use(
   }
 );
 
-apiClient.interceptors.response.use(
+apiClients.interceptors.response.use(
   async (response: any) => {
     return response.data;
   },
@@ -33,7 +33,7 @@ apiClient.interceptors.response.use(
   }
 );
 
-export default apiClient;
+export default apiClients;
 
 
 const handleError = (status: number, data: any) => {
